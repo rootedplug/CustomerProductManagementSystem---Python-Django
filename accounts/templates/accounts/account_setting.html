@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html'%}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-3">
+        <div class="col-md">
+            <div class="card text-center text-dark mb-3">
+            <div class="card-header">
+                <h5 class="card-title"><- Back to Page</h5>
+            </div>
+            <div class="card-body">
+                <img src="{{request.user.customer.profile_pic.url}}" alt="">
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="col-md">
+            <div class="card text-center text-dark mb-3">
+                <form action="" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {{form.as_p}}
+            <input type="submit" class="btn btn-info" value="Submit" name="submit">
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
